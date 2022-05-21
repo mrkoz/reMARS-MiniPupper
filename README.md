@@ -50,6 +50,12 @@ source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
 source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
 roslaunch mini_pupper_simulation gazebo.launch
 ```
+if failed, try
+```sh
+# terminal 1
+export DISPLAY=:0
+roslaunch mini_pupper_simulation gazebo.launch
+```
 
 * Launch Robot Application (Dancing Demo)
 
