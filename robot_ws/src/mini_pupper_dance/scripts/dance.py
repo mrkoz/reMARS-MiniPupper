@@ -34,7 +34,7 @@ class dance_demo:
         self.ready_to_dance = 1
 
     def dance(self):
-        while(self.dance_config_name == ' ' or not self.ready_to_dance):
+        while((self.dance_config_name == ' ' or not self.ready_to_dance) and not rospy.is_shutdown()):
             pass
         for command in self.commands:
             velocity_cmd = Twist()
