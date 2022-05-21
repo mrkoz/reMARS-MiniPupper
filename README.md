@@ -4,7 +4,7 @@
 
 ```sh
 cd ~/environment
-git clone https://github.com/0nhc/reMARS-MiniPupper.git
+git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
 ```
 
 * Install Dependencies
