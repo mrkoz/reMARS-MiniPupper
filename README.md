@@ -74,7 +74,7 @@ rostopic pub /dance_config std_msgs/String "data: 'demo'"
 * Create a new Python file in the robot application folder. Example: my_demo.py
 
 ```sh
-cd ~/environment/reMARS-MiniPupper/robot_ws/src/mini_pupper_dance/scripts
+cd ~/environment/reMARS-MiniPupper/routines
 touch my_demo.py
 ```
 
@@ -145,10 +145,6 @@ roslaunch mini_pupper_simulation gazebo.launch
 
 ```sh
 # terminal 2, build, source and launch robot application
-cd ~/environment/reMARS-MiniPupper/robot_ws
-colcon build
-cd install/mini_pupper_dance/share/mini_pupper_dance/scripts/
-sudo chmod +x *
 source /opt/ros/melodic/setup.bash
 source ~/environment/reMARS-MiniPupper/simulation_ws/install/setup.bash
 source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash

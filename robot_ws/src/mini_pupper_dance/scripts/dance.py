@@ -5,7 +5,8 @@ from geometry_msgs.msg import Pose
 from std_msgs.msg import String
 import math
 import time
-
+import sys
+import os
 
 class dance_demo:
     def __init__(self):
@@ -15,6 +16,10 @@ class dance_demo:
         self.roll = 0
         self.pitch = 0
         self.yaw = 0
+        self.dance_config_path = rospy.get_param('~dance_config_path')
+        sys.path.append(self.dance_config_path)
+        rospy.loginfo(str(self.dance_config_path))
+        rospy.loginfo(str(sys.path))
         self.dance_config_name = ' '
         self.commands = []
         self.ready_to_dance = 0
