@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="dance_config"	default="demo"/>
+  <arg name="dance_config"           default="demo"/>
+  <arg name="hardware_connected"     default="true" />
   
-  <include file="$(find mini_pupper)/launch/bringup.launch" />
+  <include file="$(find mini_pupper)/launch/bringup.launch" >
+    <arg name="hardware_connected"   value="$(arg hardware_connected)"/>
+  </include>
   <node pkg="mini_pupper_dance" type="dance.py" respawn="false" name="lets_dance" output="screen">
     <param name="/dance_config" value="$(arg dance_config)"/>
   </node>
