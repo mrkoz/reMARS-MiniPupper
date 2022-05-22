@@ -166,11 +166,11 @@ rostopic pub /dance_config std_msgs/String "data: 'my_demo'"
 ## Activity 2: Deploy and Run the Dance Robot
 
 We haven't done this greengrass part yet. If you want to test the dancing routines on real robot, please refer to the follow instructions. The repository cloned on real robot is the same repository cloned in this repo.
-
+Please also refer to our pre-build image file, [20220521.1707.V0.2.MiniPupper_remars_RoboMakerSimulation.ROS_Ubuntu21.10.0.img](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
 ```sh
 # on Mini Pupper's Terminal
 # clone this repo
-# if you use our pre-build image file, [20220521.1707.V0.2.MiniPupper_remars_RoboMakerSimulation.ROS_Ubuntu21.10.0.img](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing), no need to execute the below 4 line commands
+# if you use our pre-build image file,no need to execute the below 4 line commands
 cd ~
 git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
 cd reMARS-MiniPupper/robot_ws
@@ -191,7 +191,7 @@ rostopic pub /dance_config std_msgs/String "data: 'demo'"
 ```
 
 
-As for control in Docker, please refer to the below setting and the pre-build image sample[mini_pupper_remars_docker_IPDisplay.20220513.zip](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
+As for control in Docker, please refer to the below setting and the pre-build image sample[mini_pupper_remars_docker_IPDisplay.20220513](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
 
 
 ```sh
