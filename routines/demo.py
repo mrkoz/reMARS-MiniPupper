@@ -39,7 +39,7 @@ dance_commands = [
 'look_left',
 'look_down',
 'look_right',
-    
+
 'look_down',
 'look_left',
 'look_up',
