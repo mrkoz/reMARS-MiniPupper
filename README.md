@@ -179,7 +179,7 @@ catkin_make
 
 ```sh
 # terminal 1
-source /opt/ros/noetic/setup.bash
+source /opt/ros/melodic/setup.bash
 source ~/reMARS-MiniPupper/robot_ws/devel/setup.bash
 roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/reMARS_MiniPupper/routines
 ```
