@@ -53,7 +53,6 @@ source ~/environment/reMARS-MiniPupper/robot_ws/install/setup.bash
 roslaunch mini_pupper_simulation gazebo.launch
 ```
 
-
 * Launch Robot Application (Dancing Demo)
 
 ```sh
@@ -69,7 +68,7 @@ roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ```sh
 # terminal 3
 source /opt/ros/melodic/setup.bash
-rostopic pub /dance_config std_msgs/String "data: 'demo'"     
+rostopic pub /dance_config std_msgs/String "data: 'demo'"
 ```
 
 ### Step 4: Modify the Dance Routine
@@ -125,7 +124,7 @@ dance_commands = [
 'look_left',
 'look_down',
 'look_right',
-    
+
 'look_down',
 'look_left',
 'look_up',
@@ -159,14 +158,14 @@ roslaunch mini_pupper_dance dance.launch hardware_connected:=false
 ```sh
 # terminal 3, send a message to specify which dance routine you choose
 source /opt/ros/melodic/setup.bash
-rostopic pub /dance_config std_msgs/String "data: 'my_demo'"     
+rostopic pub /dance_config std_msgs/String "data: 'my_demo'"
 ```
 
-### 
 ## Activity 2: Deploy and Run the Dance Robot
 
 We haven't done this greengrass part yet. If you want to test the dancing routines on real robot, please refer to the follow instructions. The repository cloned on real robot is the same repository cloned in this repo.
 Please also refer to our pre-build image file, [20220521.1707.V0.2.MiniPupper_remars_RoboMakerSimulation.ROS_Ubuntu21.10.0.img](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
+
 ```sh
 # on Mini Pupper's Terminal
 # clone this repo
@@ -179,7 +178,7 @@ catkin_make
 
 ```sh
 # terminal 1
-source /opt/ros/noetic/setup.bash
+source /opt/ros/melodic/setup.bash
 source ~/reMARS-MiniPupper/robot_ws/devel/setup.bash
 roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/reMARS_MiniPupper/routines
 ```
@@ -187,22 +186,18 @@ roslaunch mini_pupper_dance dance.launch dance_config_path:=/home/ubuntu/reMARS_
 ```sh
 # terminal 2
 source /opt/ros/melodic/setup.bash
-rostopic pub /dance_config std_msgs/String "data: 'demo'"     
+rostopic pub /dance_config std_msgs/String "data: 'demo'"
 ```
 
-
-As for control in Docker, please refer to the below setting and the pre-build image sample[mini_pupper_remars_docker_IPDisplay.20220513](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
-
+As for control in Docker, please refer to the below setting and the pre-build image sample [mini_pupper_remars_docker_IPDisplay.20220513](https://drive.google.com/drive/folders/1gl-S3kokcna5GoSeIXZ5TD5rQhk48ALX?usp=sharing).
 
 ```sh
-	sudo docker run -id --name ros_noetic --network host \
-	--privileged -v /dev:/dev -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 \
-	-v /sys/class/pwm:/sys/class/pwm \
-	-v /sys/bus/i2c/devices/3-0050/eeprom:/sys/bus/i2c/devices/3-0050/eeprom \
-	-v /sys/class/pwm:/sys/class/pwm \
-	-v /sys/bus/i2c/devices/3-0050/eeprom:/sys/bus/i2c/devices/3-0050/eeprom \
-	0nhc/mnpp:test
-	sudo xhost +	
+sudo docker run -id --name ros_noetic --network host \
+--privileged -v /dev:/dev -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 \
+-v /sys/class/pwm:/sys/class/pwm \
+-v /sys/bus/i2c/devices/3-0050/eeprom:/sys/bus/i2c/devices/3-0050/eeprom \
+-v /sys/class/pwm:/sys/class/pwm \
+-v /sys/bus/i2c/devices/3-0050/eeprom:/sys/bus/i2c/devices/3-0050/eeprom \
+0nhc/mnpp:test
+sudo xhost +
 ```
-
-### 
