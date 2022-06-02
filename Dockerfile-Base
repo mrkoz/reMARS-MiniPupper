@@ -20,7 +20,12 @@ RUN apt-get update && apt-get install -y \
     ros-melodic-iris-lama-ros \
     sphinxsearch \
     devilspie \
-    xfce4-terminal
+    xfce4-terminal \
+    mosquitto mosquitto-clients \
+    python-pip \
+    apt-utils
+
+RUN pip install Inject==3.5.4 "pymongo" "paho-mqtt>=1.2" "msgpack-python>=0.4.8"
 
 ENV QT_X11_NO_MITSHM=1
 # Install Gazebo 9
