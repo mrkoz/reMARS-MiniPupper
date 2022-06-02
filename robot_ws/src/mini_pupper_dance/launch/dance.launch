@@ -10,7 +10,7 @@
   <!--node name="sound_play_node" pkg="sound_play" type="soundplay_node.py" output="screen"/-->
 
   <include file="$(find aws_iot_mqtt_bridge)/launch/aws_iot_bridge.launch">
-    <arg name="bridge_params" value="$(find aws_iot_mqtt_bridge)/config/aws_iot_params.yaml" />
+    <arg name="bridge_params" value="/config/aws_iot_params.yaml" />
   </include>
 
   <group if="$(arg hardware_connected)">

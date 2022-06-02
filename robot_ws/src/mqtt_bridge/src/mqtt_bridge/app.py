@@ -4,6 +4,7 @@ from __future__ import absolute_import
 import inject
 import paho.mqtt.client as mqtt
 import rospy
+import time
 
 from .bridge import create_bridge
 from .mqtt_client import create_private_path_extractor
@@ -54,6 +55,8 @@ def mqtt_bridge_node():
     mqtt_client.on_connect = _on_connect
     mqtt_client.on_disconnect = _on_disconnect
     mqtt_client.connect(**conn_params)
+    
+    time.sleep(5)
 
     # configure bridges
     bridges = []
