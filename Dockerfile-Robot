@@ -23,5 +23,8 @@ RUN sh -c 'sudo chmod +x robot-entrypoint.sh && sudo chown robomaker:robomaker r
 
 RUN sudo mkdir -p /config/certs/
 
-CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=false dance_config_path:=/config/routines
+ENV HARDWARE=false
+ENV DANCE_CONFIG=/config/routines
+
+CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=${HARDWARE} dance_config_path:=${DANCE_CONFIG}
 ENTRYPOINT [ "/home/robomaker/workspace/robot_ws/robot-entrypoint.sh" ]
