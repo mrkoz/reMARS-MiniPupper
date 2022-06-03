@@ -14,7 +14,7 @@ choose **ROS Melodic**
 
 ```sh
 cd ~/environment
-git clone https://github.com/mangdangroboticsclub/reMARS-MiniPupper.git
+git clone https://github.com/mrkoz/reMARS-MiniPupper
 ```
 
 * Install Dependencies
