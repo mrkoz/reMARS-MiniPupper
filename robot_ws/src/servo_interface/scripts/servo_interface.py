@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+#!/usr/bin/python3
 import os
 import sys
 import time
@@ -19,7 +18,7 @@ def set_servo_angle(pin,angle):
 
 def get_param():
     global servo_configs
-    # eeprom = open("/sys/bus/i2c/devices/3-0050/eeprom",'r',encoding="ISO-8859-1")
+    eeprom = open("/sys/bus/i2c/devices/3-0050/eeprom",'r',encoding="ISO-8859-1")
     try:
         with open("/sys/bus/i2c/devices/3-0050/eeprom", "rb") as nv_f:
             arr1 = np.array(eval(nv_f.readline()))
