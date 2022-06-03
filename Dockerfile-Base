@@ -5,12 +5,7 @@ FROM ros:melodic
 ENV DEBIAN_FRONTEND noninteractive
 # Install common dependency and ROS tools
 RUN apt-get update && apt-get install -y \
-    lsb  \
-    unzip \
-    wget \
-    curl \
-    sudo \
-    python-vcstool \
+    lsb  unzip wget curl sudo python-vcstool nano \
     python-rosinstall \
     python3-colcon-common-extensions \
     ros-melodic-rviz \
@@ -23,8 +18,10 @@ RUN apt-get update && apt-get install -y \
     xfce4-terminal \
     mosquitto mosquitto-clients \
     python-pip \
-    apt-utils
+    apt-utils \
+    python3-pip 
 
+RUN pip3 install rospkg numpy
 RUN pip install Inject==3.5.4 "pymongo" "paho-mqtt>=1.2" "msgpack-python>=0.4.8"
 
 ENV QT_X11_NO_MITSHM=1
