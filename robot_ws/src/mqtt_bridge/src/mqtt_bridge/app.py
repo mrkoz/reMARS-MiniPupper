@@ -54,8 +54,10 @@ def mqtt_bridge_node():
     # configure and connect to MQTT broker
     mqtt_client.on_connect = _on_connect
     mqtt_client.on_disconnect = _on_disconnect
-    rospy.loginfo('MQTT configuration')
+    rospy.loginfo('Connection Parameters')
     rospy.loginfo(conn_params)
+    rospy.loginfo('MQTT Parameters')
+    rospy.loginfo(mqtt_params)
     
     mqtt_client.connect(**conn_params)
     
