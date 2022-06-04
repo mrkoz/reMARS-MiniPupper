@@ -5,13 +5,15 @@ services:
       - DISPLAY
       - QT_X11_NO_MITSHM=1
       - GAZEBO_MASTER_URI=http://localhost:5555
-      - ROS_MASTER_URI=http://localhost:11311 
+      - ROS_MASTER_URI=http://localhost:11311
+      - DANCE_CONFIG=/home/robomaker/routines
     network_mode: "host"
     privileged: true
     user: robomaker
     volumes:
+      - /greengrass:/greengrass
       - /dev:/dev
+      - /sys:/sys
       - /tmp/.X11-unix/:/tmp/.X11-unix/
-      - /home/ubuntu/environment/config:/config
-      - /sys/class/pwm:/sys/class/pwm
-      - /sys/bus/i2c/devices/3-0050/eeprom:/sys/bus/i2c/devices/3-0050/eeprom
+      - /home/ggc_user/routines:/home/robomaker/routines
+      - /home/ggc_user/aws_iot_params.yaml:/config/aws_iot_params.yaml
