@@ -15,9 +15,9 @@ run-local:                 ## Run the robot in a container (non-physical)
 	-e GAZEBO_MASTER_URI=http://localhost:5555 \
 	-e ROS_MASTER_URI=http://localhost:11311 \
 	-e DISPLAY -e QT_X11_NO_MITSHM=1 \
-	-e HARDWARE=true \
+	-e HARDWARE=false \
 	-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
-	-v /home/ubuntu/environment/config:/config \
+	-v /greengrass:/greengrass \
 	--name pupper-robot mini-pupper-robot:1.0
 
 run-robot:                 ## Run the robot (physical)
@@ -27,7 +27,7 @@ run-robot:                 ## Run the robot (physical)
 	-e DISPLAY -e QT_X11_NO_MITSHM=1 \
 	-e HARDWARE=true \
 	-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
-	-v /home/ubuntu/environment/config:/config \
+	-v /greengrass:/greengrass \
 	-v /dev:/dev \
 	-v /sys:/sys \
 	--name pupper-robot mini-pupper-robot:1.0

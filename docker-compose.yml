@@ -7,9 +7,10 @@ services:
       - GAZEBO_MASTER_URI=http://localhost:5555
       - ROS_MASTER_URI=http://localhost:11311
       - DANCE_CONFIG=/home/robomaker/routines
+      - HARDWARE=true
     network_mode: "host"
     privileged: true
-    user: robomaker
+    user: root
     volumes:
       - /greengrass:/greengrass
       - /dev:/dev
