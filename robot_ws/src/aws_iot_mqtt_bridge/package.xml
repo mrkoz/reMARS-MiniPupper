@@ -16,6 +16,6 @@
   <depend>mosquitto-clients</depend>
   <depend>python-inject-pip</depend>
   <depend>python-paho-mqtt-pip</depend>
-  <depend>python-msgpack</depend>
-  <depend>python-pymongo</depend>
+  <depend>python3-msgpack</depend>
+  <depend>python3-pymongo</depend>
 </package>
