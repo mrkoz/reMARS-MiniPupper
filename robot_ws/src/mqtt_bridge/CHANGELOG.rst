@@ -2,6 +2,24 @@
 Changelog for package mqtt_bridge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2020-12-31)
+------------------
+* fix build dependency (`#43 <https://github.com/groove-x/mqtt_bridge/issues/43>`_)
+* Contributors: Junya Hayashi
+
+0.2.0 (2020-12-31)
+------------------
+* migrate to Python 3 (`#25 <https://github.com/groove-x/mqtt_bridge/issues/25>`_)
+* Contributors: Christopher Mayershofer, Junya Hayashi, Yuma Mihira
+
+0.1.8 (2020-12-31)
+------------------
+* configure rostest and run it on circleci (`#41 <https://github.com/groove-x/mqtt_bridge/issues/41>`_)
+* split requirements.txt (`#38 <https://github.com/groove-x/mqtt_bridge/issues/38>`_)
+* add unittests (`#37 <https://github.com/groove-x/mqtt_bridge/issues/37>`_)
+* Fix 'install_requires' warning when building with --install (`#32 <https://github.com/groove-x/mqtt_bridge/issues/32>`_)
+* Contributors: Jacob Seibert, Junya Hayashi
+
 0.1.7 (2020-06-21)
 ------------------
 * Fix mqtt subscribing to private path (`#27 <https://github.com/groove-x/mqtt_bridge/issues/27>`_)

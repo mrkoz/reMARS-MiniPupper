@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import
-
 import inject
 import paho.mqtt.client as mqtt
 import rospy
-import time
 
 from .bridge import create_bridge
 from .mqtt_client import create_private_path_extractor
@@ -12,9 +8,9 @@ from .util import lookup_object
 
 
 def create_config(mqtt_client, serializer, deserializer, mqtt_private_path):
-    if isinstance(serializer, basestring):
+    if isinstance(serializer, str):
         serializer = lookup_object(serializer)
-    if isinstance(deserializer, basestring):
+    if isinstance(deserializer, str):
         deserializer = lookup_object(deserializer)
     private_path_extractor = create_private_path_extractor(mqtt_private_path)
     def config(binder):
@@ -43,8 +39,8 @@ def mqtt_bridge_node():
     mqtt_client = mqtt_client_factory(mqtt_params)
 
     # load serializer and deserializer
-    serializer = params.get('serializer', 'json:dumps')
-    deserializer = params.get('deserializer', 'json:loads')
+    serializer = params.get('serializer', 'msgpack:dumps')
+    deserializer = params.get('deserializer', 'msgpack:loads')
 
     # dependency injection
     config = create_config(
@@ -54,14 +50,7 @@ def mqtt_bridge_node():
     # configure and connect to MQTT broker
     mqtt_client.on_connect = _on_connect
     mqtt_client.on_disconnect = _on_disconnect
-    rospy.loginfo('Connection Parameters')
-    rospy.loginfo(conn_params)
-    rospy.loginfo('MQTT Parameters')
-    rospy.loginfo(mqtt_params)
-    
     mqtt_client.connect(**conn_params)
-    
-    time.sleep(5)
 
     # configure bridges
     bridges = []
