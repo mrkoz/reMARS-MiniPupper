@@ -10,12 +10,13 @@ RUN sudo rosdep fix-permissions && rosdep update
 RUN sudo apt update
 WORKDIR /home/robomaker/workspace/robot_ws
 
-
 # Build the Robot application
-RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && rosdep install --rosdistro noetic --from-paths src --ignore-src -r -y && colcon build && sudo apt clean"
+RUN sudo apt install -y ros-noetic-catkin python3-catkin-pkg python3-catkin-pkg-modules
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && rosdep install --rosdistro noetic --from-paths src --ignore-src -r -y && colcon build"
+# RUN /bin/bash -c "sudo apt clean"
 
 # Add entrypoint script and grant permission
-COPY scripts/robot-entrypoint.sh robot-entrypoint.sh
+COPY scripts/robot-entrypoint.sh /home/robomaker/workspace/robot_ws
 RUN sh -c 'sudo chmod +x robot-entrypoint.sh && sudo chown robomaker:robomaker robot-entrypoint.sh'
 
 RUN sudo mkdir -p /config/certs/

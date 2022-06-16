@@ -1,7 +1,8 @@
 #!/bin/bash
-source /opt/ros/melodic/setup.bash
-source /usr/share/gazebo-9/setup.sh
-source ./install/setup.sh
+source /opt/ros/noetic/setup.bash
+source /usr/share/gazebo-11/setup.sh
+source ./install/setup.bash
+source ./install/setup.bash
 printenv
 
 exec "${@:1}"
