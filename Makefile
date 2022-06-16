@@ -4,11 +4,11 @@ help:                      ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 build-base:                ## Build base image
-	sudo docker build . -t mini-pupper-base:1.0 -f Dockerfile-Base
+	sudo docker build . -t mini-pupper-base:2.0 -f Dockerfile-Base
 
 
 build-robot:               ## Cuild robot image
-	sudo docker build . -t mini-pupper-robot:1.0 -f Dockerfile-Robot
+	sudo docker build . -t mini-pupper-robot:2.0 -f Dockerfile-Robot
 
 run-local:                 ## Run the robot in a container (non-physical)
 	docker run -it --net=host --privileged -u robomaker --rm \
