@@ -52,7 +52,7 @@ def mqtt_bridge_node():
     mqtt_client.on_connect = _on_connect
     mqtt_client.on_disconnect = _on_disconnect
     mqtt_client.connect(**conn_params)
-    
+
     rospy.loginfo('MQTT pause for 5')
     time.sleep(5)
 
