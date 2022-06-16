@@ -19,7 +19,7 @@ run-local:                 ## Run the robot in a container (non-physical)
 	-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
 	-v /home/ubuntu/environment/config:/config \
 	-v /greengrass:/greengrass \
-	--name pupper-robot mini-pupper-robot:1.0
+	--name pupper-robot mini-pupper-robot:2.0
 
 run-robot:                 ## Run the robot (physical)
 	sudo docker run -it --net=host --privileged -u root --rm \
@@ -32,7 +32,7 @@ run-robot:                 ## Run the robot (physical)
 	-v /greengrass:/greengrass \
 	-v /dev:/dev \
 	-v /sys:/sys \
-	--name pupper-robot mini-pupper-robot:1.0
+	--name pupper-robot mini-pupper-robot:2.0
 
 update-ip:                 ## update the ip on the screen
 	python3 /home/ubuntu/minipupper_ros_bsp/mangdang/LCD/demo.py

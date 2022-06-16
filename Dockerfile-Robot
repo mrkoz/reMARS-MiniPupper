@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT-0
 
 # Source is previously built image
-FROM mini-pupper-base:1.0
+FROM mini-pupper-base:2.0
 
 ADD robot_ws/src /home/robomaker/workspace/robot_ws/src
 ADD simulation_ws/src /home/robomaker/workspace/simulation_ws/src
@@ -20,7 +20,7 @@ RUN sh -c 'sudo chmod +x robot-entrypoint.sh && sudo chown robomaker:robomaker r
 
 RUN sudo mkdir -p /config/certs/
 
-ENV HARDWARE=false
+ENV HARDWARE=true
 ENV DANCE_CONFIG=/config/routines
 
 CMD roslaunch mini_pupper_dance dance.launch hardware_connected:=${HARDWARE} dance_config_path:=${DANCE_CONFIG}
