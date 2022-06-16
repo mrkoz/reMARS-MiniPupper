@@ -10,10 +10,15 @@ RUN sudo rosdep fix-permissions && rosdep update
 RUN sudo apt update
 WORKDIR /home/robomaker/workspace/robot_ws
 
+# dirty hack for mqtt bridge - latency in the container causes it to break without this
+RUN sudo apt install -y ros-noetic-catkin python3-catkin-pkg python3-catkin-pkg-modules ros-noetic-mqtt-bridge
+RUN sudo cp /home/robomaker/workspace/robot_ws/src/mqtt_bridge/src/mqtt_bridge/app.py /opt/ros/noetic/lib/python3/dist-packages/mqtt_bridge/app.py
+
 # Build the Robot application
-RUN sudo apt install -y ros-noetic-catkin python3-catkin-pkg python3-catkin-pkg-modules
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && rosdep install --rosdistro noetic --from-paths src --ignore-src -r -y && colcon build"
-# RUN /bin/bash -c "sudo apt clean"
+RUN /bin/bash -c "sudo apt clean"
+
+RUN sudo cp /home/robomaker/workspace/robot_ws/src/mqtt_bridge/src/mqtt_bridge/app.py /opt/ros/noetic/lib/python3/dist-packages/mqtt_bridge/app.py
 
 # Add entrypoint script and grant permission
 COPY scripts/robot-entrypoint.sh /home/robomaker/workspace/robot_ws
